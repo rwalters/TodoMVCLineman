@@ -7,3 +7,4 @@ TODO
 -----
  * Finish converting .js files to .coffee files.
  * Break index.html into separate .hb templates.
+ * Add tests to be run by lineman

@@ -2,27 +2,25 @@ Todos.TodoController = Ember.ObjectController.extend
   isEditing: false
 
   editTodo: ->
-    this.set('isEditing', true)
+    @set 'isEditing', true
 
-  isCompleted: ( -> (key, value)
-    var model = this.get('model')
-
-    if (value  === undefined) {
-      // Property being used as a getter
-      return model.get('isCompleted')
-    } else {
-      // property being used as a setter
-      model.set('isCompleted', value)
-      model.save()
-      return value
-    }
+  isCompleted: ( (key, value) ->
+    model = @get "model"
+    if (value is undefined)
+      # Property being used as a getter
+      @get("model").get "isCompleted"
+    else
+      # property being used as a setter
+      @get("model").set "isCompleted", value
+      @get("model").save()
+      value
   ).property('model.isCompleted')
 
   acceptChanges: ->
-    this.set('isEditing', false)
-    this.get('model').save()
+    @set "isEditing", false
+    @get("model").save()
 
   removeTodo: ->
-    var todo = this.get('model')
+    todo = @get('model')
     todo.deleteRecord()
     todo.save()

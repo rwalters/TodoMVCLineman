@@ -1,8 +1,9 @@
 Todos.Router.map ->
   this.resource('todos', { path: '/' }, ->
-    //additional child routes
+    # additional child routes
     this.route('active')
     this.route('completed')
+  )
 
 Todos.TodosRoute = Ember.Route.extend
   model: ->
