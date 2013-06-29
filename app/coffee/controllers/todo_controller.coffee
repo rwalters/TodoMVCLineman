@@ -4,7 +4,7 @@ Todos.TodoController = Ember.ObjectController.extend
   editTodo: ->
     @set 'isEditing', true
 
-  isCompleted: ( (key, value) ->
+  isCompleted: Ember.computed (key, value) ->
     model = @get "model"
     if (value is undefined)
       # Property being used as a getter
@@ -14,7 +14,7 @@ Todos.TodoController = Ember.ObjectController.extend
       @get("model").set "isCompleted", value
       @get("model").save()
       value
-  ).property('model.isCompleted')
+  .property('model.isCompleted')
 
   acceptChanges: ->
     @set "isEditing", false

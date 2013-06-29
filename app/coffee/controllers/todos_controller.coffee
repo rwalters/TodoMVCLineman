@@ -1,5 +1,5 @@
 Todos.TodosController = Ember.ArrayController.extend(
-  createTodo: ( ->
+  createTodo: ->
     # Get the todo title set by the "New Todo" text field
     title = @get("newTitle")
     return unless title.trim()
@@ -15,24 +15,23 @@ Todos.TodosController = Ember.ArrayController.extend(
 
     # Save the new model
     todo.save()
-  )
 
-  remaining: ( ->
+  remaining: Ember.computed ->
     @filterProperty("isCompleted", false).get("length")
-  ).property("@each.isCompleted")
+  .property("@each.isCompleted")
 
-  inflection: ( ->
+  inflection: Ember.computed ->
     remaining = @get("remaining")
     (if remaining is 1 then "todo" else "todos")
-  ).property("remaining")
+  .property("remaining")
 
-  hasCompleted: ( ->
+  hasCompleted: Ember.computed ->
     @get("completed") > 0
-  ).property("completed")
+  .property("completed")
 
-  completed: ( ->
+  completed: Ember.computed ->
     @filterProperty("isCompleted", true).get("length")
-  ).property("@each.isCompleted")
+  .property("@each.isCompleted")
 
   clearCompleted: ->
     completed = @filterProperty("isCompleted", true)
