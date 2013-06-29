@@ -5,7 +5,7 @@ This is an exercise in adapting and extending the example app from the [Ember Gu
 
 NOTES
 -----
-You have to follow the instructions on the Lineman page set up Node.JS and other dependencies.  I have slightly modified the ''''config/files.coffee''' to load the JavaScript and CoffeeScript files in the correct order.
+You have to follow the instructions on the Lineman page set up Node.JS and other dependencies.  I have slightly modified the ```config/files.coffee``` to load the JavaScript and CoffeeScript files in the correct order.
 
 TODO
 -----
