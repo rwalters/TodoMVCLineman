@@ -1,8 +1,8 @@
 Todos.Router.map ->
-  this.resource('todos', { path: '/' }, ->
+  @resource('todos', { path: '/' }, ->
     # additional child routes
-    this.route('active')
-    this.route('completed')
+    @route('active')
+    @route('completed')
   )
 
 Todos.TodosRoute = Ember.Route.extend
@@ -19,7 +19,7 @@ Todos.TodosActiveRoute = Ember.Route.extend
       return !todo.get('isCompleted')
 
   renderTemplate: (controller) ->
-    this.render('todos/index', {controller: controller})
+    @render('todos/index', {controller: controller})
 
 Todos.TodosCompletedRoute = Ember.Route.extend
   model: ->
@@ -27,4 +27,4 @@ Todos.TodosCompletedRoute = Ember.Route.extend
       return todo.get('isCompleted')
 
   renderTemplate: (controller) ->
-    this.render('todos/index', {controller: controller})
+    @render('todos/index', {controller: controller})
